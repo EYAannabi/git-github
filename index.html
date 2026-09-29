@@ -19,8 +19,8 @@ code{font-family:"SFMono-Regular",Consolas,monospace;color:#4e40d9;font-size:.9e
 .search{display:flex;align-items:center;gap:7px;width:260px;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:6px 11px;color:var(--muted)}
 .search input{border:0;outline:0;background:transparent;width:100%;font:inherit;color:var(--ink)}
 .icon-button{background:var(--bg);border:1px solid var(--line);border-radius:9px;height:38px;width:38px;cursor:pointer;font-size:1.1rem;color:var(--ink)}
-.layout{display:flex;max-width:1440px;margin:auto;overflow-x:hidden}
-.sidebar{width:255px;flex:none;padding:36px 22px 30px 4vw;border-right:1px solid var(--line);min-height:calc(100vh - 72px);position:sticky;top:72px;height:calc(100vh - 72px);overflow-y:auto}
+.layout{display:flex;max-width:1440px;margin:auto}
+.sidebar{width:255px;flex:none;padding:36px 22px 30px 4vw;border-right:1px solid var(--line);min-height:calc(100vh - 72px);position:sticky;top:72px;height:calc(100vh - 72px);overflow-y:auto;align-self:flex-start}
 .sidebar-heading,.section-label,.eyebrow{font-size:.72rem;letter-spacing:.13em;font-weight:800;color:#8a94a8}
 .sidebar-heading{margin-bottom:17px}
 .toc-link{display:block;color:var(--muted);font-size:.84rem;padding:7px 12px;border-left:2px solid transparent;margin:1px 0;transition:.2s}
@@ -51,7 +51,7 @@ code{font-family:"SFMono-Regular",Consolas,monospace;color:#4e40d9;font-size:.9e
 .lead{color:var(--muted);max-width:700px;margin:0 0 24px}
 .step-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
 .step-grid .step-card:last-child:nth-child(3){grid-column:span 2}
-.step-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;box-shadow:var(--shadow)}
+.step-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;box-shadow:var(--shadow);min-width:0}
 .step-number{color:var(--primary);font-size:.73rem;font-weight:800;letter-spacing:.1em}
 .step-card p{color:var(--muted);font-size:.9rem;margin:6px 0 15px}
 .note{font-size:.81rem!important}
@@ -116,7 +116,9 @@ body[data-theme="dark"] .toc-link:hover,body[data-theme="dark"] .toc-link.active
 body[data-theme="dark"] .callout.win{background:#132a42;color:#8fc1ef}
 body[data-theme="dark"] .subblock{border-color:#29364c}
 @media(max-width:900px){.sidebar{width:210px;padding-left:20px}.content{padding:0 35px 60px}}
-@media(max-width:700px){.topbar{padding-left:18px;padding-right:18px}.search{width:38px;padding:6px 10px}.search input{display:none}.layout{display:block}.sidebar{display:none}.content{padding:0 20px 50px}.hero{padding:55px 0 35px}.hero h1{font-size:2.4rem}.flow,.concept-row,.daily-flow{flex-wrap:wrap;gap:10px}.flow i{display:none}.flow div{min-width:42%}.concept-row>div:not(.arrow),.daily-flow>div{min-width:46%}.concept-row .arrow{display:none}.step-grid,.split{grid-template-columns:1fr}.step-grid .step-card:last-child:nth-child(3){grid-column:auto}.code-tabs{grid-template-columns:1fr}.tab-label{margin-top:8px}.hero-actions{margin-bottom:35px}footer{flex-direction:column}}
+@media(max-width:700px){.topbar{padding-left:18px;padding-right:18px}.search{width:38px;padding:6px 10px}.search input{display:none}.layout{display:block}.sidebar{display:block;position:sticky;top:72px;width:100%;height:auto;min-height:0;max-height:110px;padding:8px 12px;background:var(--bg);border-right:0;border-bottom:1px solid var(--line);z-index:4;overflow-x:auto;overflow-y:hidden}.sidebar-heading,.sidebar-tip{display:none}#toc{display:flex;gap:4px;min-width:max-content}.toc-link{flex:none;border-left:0;border-bottom:2px solid transparent;padding:7px 10px}.toc-link:hover,.toc-link.active{border-color:var(--primary)}.content{padding:0 20px 50px}.hero{padding:55px 0 35px}.hero h1{font-size:2.4rem}.flow,.concept-row,.daily-flow{flex-wrap:wrap;gap:10px}.flow i{display:none}.flow div{min-width:42%}.concept-row>div:not(.arrow),.daily-flow>div{min-width:46%}.concept-row .arrow{display:none}.step-grid,.split{grid-template-columns:1fr}.step-grid .step-card:last-child:nth-child(3){grid-column:auto}.code-tabs{grid-template-columns:1fr}.tab-label{margin-top:8px}.hero-actions{margin-bottom:35px}footer{flex-direction:column}}
+@media(max-width:700px){.guide-section{scroll-margin-top:140px}.cheatsheet{display:block;overflow-x:auto;white-space:nowrap}}
+@media(max-width:420px){.topbar{height:64px}.sidebar{top:64px}.guide-section{scroll-margin-top:132px}.brand{font-size:1.05rem}.content{padding-right:16px;padding-left:16px}.hero h1{font-size:2.1rem}.hero-actions{gap:8px}.button{padding:9px 12px;font-size:.82rem}.step-card{padding:16px}}
 </style>
 </head>
 <body>
@@ -155,7 +157,7 @@ body[data-theme="dark"] .subblock{border-color:#29364c}
 <div class="eyebrow">WORKSHOP · PRACTICAL LEVEL</div>
 <h1>Git & GitHub,<br><span>the practical way.</span></h1>
 <p class="hero-text">A hands-on guide to version your files, back up your work, and collaborate with confidence — written for a <strong>Windows</strong> setup, using either <strong>Git Bash</strong> or the terminal built into <strong>VS Code</strong>. Follow every step in order and actually run the commands yourself.</p>
-<div class="hero-actions"><a class="button primary" href="#setup">Start the training →</a><a class="button secondary" href="#cheatsheet">Jump to cheat sheet</a></div>
+<div class="hero-actions"><a class="button primary" href="#setup">Start the training →</a><a class="button secondary" href="https://git-scm.com/download/win" target="_blank" rel="noreferrer">Download Git</a><a class="button secondary" href="https://code.visualstudio.com/download" target="_blank" rel="noreferrer">Download VS Code</a><a class="button secondary" href="https://github.com/signup" target="_blank" rel="noreferrer">Create a GitHub account</a><a class="button secondary" href="#cheatsheet">Jump to cheat sheet</a></div>
 <div class="flow">
 <div><span>01</span><strong>Local files</strong><small>Your working folder</small></div><i>→</i>
 <div><span>02</span><strong>Git</strong><small>Local history</small></div><i>→</i>
@@ -232,7 +234,7 @@ git diff
 git add README.md
 git commit -m "Add a description to the README"
 
-echo "recipe: pasta carbonara" > recipe.txt
+echo "recipe: ma9rouna kadheba" > recipe.txt
 git add recipe.txt
 git commit -m "Add a recipe"
 git log --oneline</code></pre></div>
@@ -258,7 +260,7 @@ git reset --soft HEAD~1</code></pre></div></article>
 <div class="section-label">PART 06</div><h2>Connect your repository to GitHub</h2>
 <p class="lead">Git works on your machine. GitHub hosts an online copy that your team can share.</p>
 <ol class="numbered">
-<li><strong>Create an account</strong> on <a href="https://github.com" target="_blank" rel="noreferrer">github.com</a> (free).</li>
+<li><strong>Create an account</strong> on <a href="https://github.com/signup" target="_blank" rel="noreferrer">GitHub</a> (free).</li>
 <li><strong>Create a new empty repository.</strong> Click the <strong>"+"</strong> button (top right) → <strong>New repository</strong>. Name it <code>my-first-project</code> and leave README and .gitignore unchecked — you already have a local project.</li>
 <li><strong>Set up authentication</strong> (required since 2021 — GitHub no longer accepts plain passwords for Git). Two options:</li>
 </ol>
@@ -278,7 +280,7 @@ git push -u origin main</code></pre></div>
 <p class="lead">This is the loop you'll repeat constantly. Memorize it.</p>
 <div class="daily-flow"><div><span>1</span><code>git status</code><small>see what changed</small></div><div><span>2</span><code>git add file</code><small>stage it</small></div><div><span>3</span><code>git commit</code><small>save it locally</small></div><div><span>4</span><code>git push</code><small>send it to GitHub</small></div></div>
 <h3>Practical exercise</h3>
-<div class="code-block"><div class="code-head"><span>Terminal</span><button data-copy type="button">Copy</button></div><pre><code>echo "recipe: apple pie" >> recipe.txt
+<div class="code-block"><div class="code-head"><span>Terminal</span><button data-copy type="button">Copy</button></div><pre><code>echo "recipe: loubya bel k3aber" >> recipe.txt
 git add recipe.txt
 git commit -m "Add a second recipe"
 git push</code></pre></div>
@@ -287,14 +289,14 @@ git push</code></pre></div>
 <div class="subblock">
 <h4>Step 1 — Edit a file directly on GitHub</h4>
 <p class="note">On <code>github.com</code>, open your repository → click <code>recipe.txt</code> → click the <strong>pencil icon</strong> (Edit this file) → add a line:</p>
-<div class="code-block"><div class="code-head"><span>New line</span><button data-copy type="button">Copy</button></div><pre><code>recipe: quiche lorraine</code></pre></div>
+<div class="code-block"><div class="code-head"><span>New line</span><button data-copy type="button">Copy</button></div><pre><code>recipe: brikaaaa</code></pre></div>
 <p class="note">Scroll down to <strong>"Commit changes"</strong>, give it a title (e.g. "Add a recipe from GitHub"), and click <strong>Commit changes</strong> directly on <code>main</code>. You just created a commit straight on GitHub, without touching your PC.</p>
 </div>
 <div class="subblock">
 <h4>Step 2 — Check your local machine (not synced yet)</h4>
 <div class="code-block"><div class="code-head"><span>Terminal</span><button data-copy type="button">Copy</button></div><pre><code>cd ~/my-first-project
 cat recipe.txt</code></pre></div>
-<p class="note">The "quiche lorraine" line doesn't appear yet — your local repository has no idea about the change made on GitHub.</p>
+<p class="note">The "brikaaaa" line doesn't appear yet — your local repository has no idea about the change made on GitHub.</p>
 </div>
 <div class="subblock">
 <h4>Step 3 — Fetch the change with <code>git pull</code></h4>
@@ -307,7 +309,7 @@ Updating a1b2c3d..e4f5g6h
 Fast-forward
  recipe.txt | 1 +
  1 file changed, 1 insertion(+)</code></pre></div>
-<p class="note"><code>cat recipe.txt</code> now shows the "quiche lorraine" line, pulled straight from GitHub.</p>
+<p class="note"><code>cat recipe.txt</code> now shows the "brikaaaa" line, pulled straight from GitHub.</p>
 </div>
 <div class="callout info"><strong>In short</strong><span><code>push</code> sends your local commits to GitHub. <code>pull</code> brings GitHub's commits down to your machine. They travel in opposite directions.</span></div>
 </section>
@@ -375,7 +377,7 @@ git push -u origin main</code></pre></div>
 <h3>9.1 — Create a branch and push it</h3>
 <div class="code-block large"><div class="code-head"><span>Terminal</span><button data-copy type="button">Copy</button></div><pre><code>cd ~/my-first-project
 git checkout -b new-feature
-echo "recipe: onion soup" >> recipe.txt
+echo "recipe: ojja" >> recipe.txt
 git add recipe.txt
 git commit -m "Add a recipe on a separate branch"</code></pre></div>
 <p class="note">Git will suggest the exact push command for a brand-new branch:</p>
@@ -384,29 +386,29 @@ git commit -m "Add a recipe on a separate branch"</code></pre></div>
 
 <h3>9.2 — Visualize where you stand</h3>
 <div class="code-block"><div class="code-head"><span>Terminal</span><button data-copy type="button">Copy</button></div><pre><code>git log --oneline --graph --all</code></pre></div>
-<div class="output-block"><div class="code-head"><span>Example output</span></div><pre><code>* 1c15b73 (HEAD -> new-feature) add pasta recipe
+<div class="output-block"><div class="code-head"><span>Example output</span></div><pre><code>* 1c15b73 (HEAD -> new-feature) add ojja recipe
 * 818fa1f Add a recipe on a separate branch
-* 1738cc9 (origin/main) Add quiche lorraine to recipe.txt
-* 674e5f6 Add a second recipe
+* 1738cc9 (origin/main) Add brikaaaa to recipe.txt
+* 674e5f6 Add loubya bel k3aber
 ...</code></pre></div>
 <p class="note"><code>new-feature</code> is 2 commits ahead of <code>main</code> — it contains work that <code>main</code> doesn't have yet.</p>
 
 <h3>9.3 — Confirm branches are isolated</h3>
 <div class="code-block"><div class="code-head"><span>Terminal</span><button data-copy type="button">Copy</button></div><pre><code>git checkout main
 cat recipe.txt</code></pre></div>
-<p class="note">Neither "pasta recipe" nor "onion soup" appears here — proof that branches are genuinely isolated from one another.</p>
+<p class="note">Neither "kafteji" nor "ojja" appears here — proof that branches are genuinely isolated from one another.</p>
 
 <h3>9.4 — Create a real divergence</h3>
 <p class="lead">Make <code>main</code> evolve in parallel, so the two branches truly diverge from a common ancestor.</p>
-<div class="code-block"><div class="code-head"><span>Terminal (on main)</span><button data-copy type="button">Copy</button></div><pre><code>echo "recipe: ratatouille" >> recipe.txt
+<div class="code-block"><div class="code-head"><span>Terminal (on main)</span><button data-copy type="button">Copy</button></div><pre><code>echo "recipe: kafteji" >> recipe.txt
 git add recipe.txt
-git commit -m "Add ratatouille on main"
+git commit -m "Add kafteji on main"
 git log --oneline --graph --all</code></pre></div>
-<div class="output-block"><div class="code-head"><span>Example output</span></div><pre><code>* a1b2c3d (HEAD -> main) Add ratatouille on main
-| * 1c15b73 (new-feature) add pasta recipe
+<div class="output-block"><div class="code-head"><span>Example output</span></div><pre><code>* a1b2c3d (HEAD -> main) Add kafteji on main
+| * 1c15b73 (new-feature) add ojja recipe
 | * 818fa1f Add a recipe on a separate branch
 |/
-* 1738cc9 (origin/main) Add quiche lorraine to recipe.txt
+* 1738cc9 (origin/main) Add brikaaaa to recipe.txt
 ...</code></pre></div>
 <p class="note">This is exactly what branching looks like: two development lines running separately from the same starting point.</p>
 
@@ -415,9 +417,9 @@ git log --oneline --graph --all</code></pre></div>
 git merge new-feature</code></pre></div>
 <div class="warning"><span>!</span><p><strong>If both branches touched the same lines</strong>, Git can't merge automatically and inserts conflict markers:</p></div>
 <div class="output-block"><div class="code-head"><span>Conflict example</span></div><pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-recipe: ratatouille
+recipe: kafteji
 =======
-recipe: pasta
+recipe: ojja
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; new-feature</code></pre></div>
 <p class="note">Resolve it by hand: keep the content you want, delete the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> / <code>=======</code> / <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers, then finish the merge:</p>
 <div class="code-block"><div class="code-head"><span>Terminal</span><button data-copy type="button">Copy</button></div><pre><code>git add recipe.txt
@@ -484,6 +486,7 @@ rm -rf my-first-project Linktree-contributor Linktree</code></pre></div>
 <section id="cheatsheet" class="guide-section searchable">
 <div class="section-label">REFERENCE</div><h2>Command cheat sheet</h2>
 <p class="lead">The commands you'll reach for the most, in one place.</p>
+<p><a class="button secondary" href="https://quickref.me/git" target="_blank" rel="noreferrer">Open the Git QuickRef cheat sheet ↗</a></p>
 <table class="cheatsheet">
 <tr><th>Command</th><th>What it does</th></tr>
 <tr><td><code>git status</code></td><td>Show what changed and what's staged</td></tr>
